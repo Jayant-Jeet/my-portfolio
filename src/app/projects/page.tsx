@@ -54,7 +54,7 @@ const projects = [
   {
     id: 5,
     title: "SIH 2020 - Sixth Sense",
-    description: "Smart India Hackathon 2020 project focused on innovative solutions using IoT and AI technologies. Collaborative project with advanced sensor integration.",
+    description: "Smart India Hackathon 2020 project for sign language based communication and information system for deaf and mute people. Uses Machine Learning and Mediapipe for gesture recognition.",
     tech: ["Machine Learning", "Mediapipe", "C++"],
     githubUrl: "https://github.com/Amankumar1456/SIH2020_IC464_Sixth_Sense_GitRepository_MLRIT",
     liveUrl: "#",
