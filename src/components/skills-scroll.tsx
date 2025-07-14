@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 interface Skill {
@@ -57,8 +59,39 @@ const skills: Skill[] = [
 ];
 
 const SkillsScroll: React.FC = () => {
-  // Duplicate the skills array to create seamless infinite scroll
-  const duplicatedSkills = [...skills, ...skills];
+  const scrollRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  
+  // Create multiple copies for seamless infinite scroll
+  const skillsCopies = Array(4).fill(skills).flat();
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    const track = trackRef.current;
+    
+    if (!scrollContainer || !track) return;
+
+    const handleUserScroll = () => {
+      // Check for infinite scroll reset
+      const currentScroll = scrollContainer.scrollLeft;
+      const singleSetWidth = track.scrollWidth / 4;
+      
+      if (currentScroll >= singleSetWidth * 3) {
+        // Reset to beginning
+        scrollContainer.scrollLeft = singleSetWidth;
+      } else if (currentScroll <= 0) {
+        // Reset to end of second copy
+        scrollContainer.scrollLeft = singleSetWidth * 2;
+      }
+    };
+
+    // Add scroll listener for infinite scroll reset only
+    scrollContainer.addEventListener('scroll', handleUserScroll);
+
+    return () => {
+      scrollContainer.removeEventListener('scroll', handleUserScroll);
+    };
+  }, []);
 
   const getCategoryColor = (category: Skill['category']) => {
     switch (category) {
@@ -87,9 +120,13 @@ const SkillsScroll: React.FC = () => {
         </div>
       </div>
       
-      <div className="skills-scroll-wrapper">
-        <div className="skills-scroll-track">
-          {duplicatedSkills.map((skill, index) => (
+      <section 
+        ref={scrollRef}
+        className="skills-scroll-wrapper"
+        aria-label="Skills showcase - scroll horizontally to view all skills"
+      >
+        <div ref={trackRef} className="skills-scroll-track">
+          {skillsCopies.map((skill, index) => (
             <div 
               key={`${skill.name}-${index}`} 
               className="skill-item"
@@ -108,7 +145,7 @@ const SkillsScroll: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

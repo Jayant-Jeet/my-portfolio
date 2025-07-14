@@ -368,7 +368,9 @@ body {
 
 .skills-scroll-wrapper {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -385,11 +387,30 @@ body {
   );
 }
 
+/* Hide scrollbar for webkit browsers */
+.skills-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Improve scrolling on mobile devices */
+@media (max-width: 768px) {
+  .skills-scroll-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .skills-scroll-track {
+    padding: 0 1rem;
+  }
+}
+
 .skills-scroll-track {
   display: flex;
   gap: 2rem;
-  animation: scrollSkills 30s linear infinite;
   width: max-content;
+  padding: 0 2rem;
+  min-height: 180px;
+  align-items: center;
+  transition: none;
 }
 
 .skill-item {
@@ -459,19 +480,7 @@ body {
   color: var(--category-color, var(--teal));
 }
 
-@keyframes scrollSkills {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Pause animation on hover for better UX */
-.skills-scroll-track:hover {
-  animation-play-state: paused;
-}
+/* Animation control - now handled by JavaScript */
 
 /* Projects Page Styles */
 .projects-main {
