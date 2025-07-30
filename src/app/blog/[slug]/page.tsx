@@ -6,13 +6,14 @@ import Navbar from '@/components/navbar';
 import { getBlogPost, blogPosts } from '@/lib/blog-data';
 
 interface BlogPostPageProps {
-  readonly params: {
+  readonly params: Promise<{
     readonly slug: string;
-  };
+  }>;
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
 
   if (!post) {
     notFound();
