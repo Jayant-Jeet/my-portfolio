@@ -38,6 +38,35 @@ export default function Navbar() {
           height={250} 
         />
       </Link>
+      <div className="navbar-actions">
+        <Link href="/projects" className="action-btn" title="View Projects">
+          <Image 
+            src="/projects.png" 
+            alt="View Projects" 
+            width={36} 
+            height={36} 
+          />
+          <span className="tooltip">View Projects</span>
+        </Link>
+        <Link href="/blog" className="action-btn" title="View Blog">
+          <Image 
+            src="/log.png" 
+            alt="View Blog" 
+            width={36} 
+            height={36} 
+          />
+          <span className="tooltip">View Blog</span>
+        </Link>
+        <Link href="/contact" className="action-btn" title="Get in touch!">
+          <Image 
+            src="/get-in-touch.png" 
+            alt="Get in touch!" 
+            width={36} 
+            height={36} 
+          />
+          <span className="tooltip">Get in touch!</span>
+        </Link>
+      </div>
     </nav>
   );
 }

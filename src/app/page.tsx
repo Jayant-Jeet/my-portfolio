@@ -85,6 +85,9 @@ function Home() {
               <Link href="/projects" className="btn-primary">
                 View Projects
               </Link>
+              <Link href="/blog" className="btn-secondary">
+                My Blog
+              </Link>
               <Link href="https://www.dropbox.com/scl/fi/14wb90350yro2bppfqm8d/Resume-Jayant-Jeet-Tomar-GraphQL_Developer-Jun24.pdf?rlkey=pkfagta8l8fbulpj46hayj0p1&st=htluvg8f&dl=0" className="btn-success" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </Link>
