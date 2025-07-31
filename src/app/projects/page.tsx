@@ -20,25 +20,25 @@ const projects = [
   },
   {
     id: 2,
-    title: "Kanoon - Legal Query System",
-    description: "Law made easy! An intelligent app that allows users to query about punishments for any offense using Natural Language Processing. Built with Jina core and Jinabox for semantic search.",
-    tech: ["JavaScript", "NLP", "Jina", "Machine Learning"],
-    githubUrl: "https://github.com/Jayant-Jeet/kanoon",
+    title: "L&TT SME Planner App Frontend",
+    description: "A comprehensive Angular application for managing Subject Matter Expert (SME) scheduling and effort tracking. This application provides a user-friendly interface for planning, scheduling, and monitoring SME activities across different projects and teams.",
+    tech: ["Angular", "TypeScript", "SCSS"],
+    githubUrl: "https://github.com/Jayant-Jeet/sme-planner",
     liveUrl: "#",
     image: "/globe.svg",
-    category: "Machine Learning",
-    size: "medium"
+    category: "Full Stack",
+    size: "large"
   },
   {
     id: 3,
-    title: "Save The Planet",
-    description: "An engaging memory game built with Flutter/Dart that promotes environmental awareness while challenging players' memory skills with beautiful graphics and smooth animations.",
-    tech: ["Flutter", "Dart", "Mobile Development"],
-    githubUrl: "https://github.com/Jayant-Jeet/save-the-planet",
+    title: "L&TT SME Planner App Backend",
+    description: "A Spring Boot REST API backend for the Learning & Training Team (L&TT) SME (Subject Matter Expert) Planner application. This system helps manage SME activities, schedules, and resource planning.",
+    tech: ["SpringBoot", "REST API", "MySQL"],
+    githubUrl: "https://github.com/Jayant-Jeet/ltt-sme-planner-backend",
     liveUrl: "#",
     image: "/window.svg",
-    category: "Mobile",
-    size: "medium"
+    category: "Full Stack",
+    size: "large"
   },
   {
     id: 4,
@@ -61,6 +61,28 @@ const projects = [
     image: "/file.svg",
     category: "Machine Learning",
     size: "large"
+  },
+  {
+    id: 6,
+    title: "Kanoon - Legal Query System",
+    description: "Law made easy! An intelligent app that allows users to query about punishments for any offense using Natural Language Processing. Built with Jina core and Jinabox for semantic search.",
+    tech: ["JavaScript", "NLP", "Jina", "Machine Learning"],
+    githubUrl: "https://github.com/Jayant-Jeet/kanoon",
+    liveUrl: "#",
+    image: "/globe.svg",
+    category: "Machine Learning",
+    size: "medium"
+  },
+  {
+    id: 7,
+    title: "Save The Planet",
+    description: "An engaging memory game built with Flutter/Dart that promotes environmental awareness while challenging players' memory skills with beautiful graphics and smooth animations.",
+    tech: ["Flutter", "Dart", "Mobile Development"],
+    githubUrl: "https://github.com/Jayant-Jeet/save-the-planet",
+    liveUrl: "#",
+    image: "/window.svg",
+    category: "Mobile",
+    size: "medium"
   }
 ];
 
