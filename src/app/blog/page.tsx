@@ -53,7 +53,10 @@ export default function BlogPage() {
                       <span className="blog-category">{post.category}</span>
                     </div>
                     
-                    <h2 className="blog-card-title">{post.title}</h2>
+                    <h2 className="blog-card-title">
+                      {post.titlePrefix && <span className="title-prefix">{post.titlePrefix} </span>}
+                      <span className="gradient-text">{post.title}</span>
+                    </h2>
                     <p className="blog-card-excerpt">{post.excerpt}</p>
                     
                     <div className="blog-card-tags">

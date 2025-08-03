@@ -1087,6 +1087,12 @@ body {
   line-height: 1.3;
 }
 
+.title-prefix {
+  color: var(--foreground);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 .blog-card-excerpt {
   color: var(--foreground);
   opacity: 0.8;

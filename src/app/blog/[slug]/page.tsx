@@ -44,6 +44,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
             
             <h1 className="blog-post-title">
+              {post.titlePrefix && <span className="title-prefix">{post.titlePrefix} </span>}
               <span className="gradient-text">{post.title}</span>
             </h1>
             

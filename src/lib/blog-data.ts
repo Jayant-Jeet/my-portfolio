@@ -2,6 +2,7 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
+  titlePrefix?: string;
   excerpt: string;
   content: string;
   date: string;
@@ -42,7 +43,8 @@ Nox!
   {
     id: '2',
     slug: 'frontend-vs-backend-deployments',
-    title: '🚀 Frontend Deployments Are a Dream. Backend? A Whole Saga.',
+    title: 'Frontend Deployments Are a Dream. Backend? A Whole Saga.',
+    titlePrefix: '🚀',
     excerpt: 'Frontend deployments are a breeze with platforms like Vercel and Netlify. Backend deployments? A whole different story.',
     content: `
 Hey there! 
