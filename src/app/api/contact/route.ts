@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+export const runtime = 'nodejs';
+
 export async function POST(request: NextRequest) {
   try {
     const { name, email, message } = await request.json();
@@ -13,19 +15,48 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter (you'll need to configure this with your email service)
+    // Validate env vars
+    const user = process.env.EMAIL_USER;
+    const pass = process.env.EMAIL_PASS;
+    if (!user || !pass) {
+      console.error('Missing EMAIL_USER or EMAIL_PASS env vars');
+      return NextResponse.json(
+        { error: 'Server email is not configured' },
+        { status: 500 }
+      );
+    }
+
+    // Create transporter with explicit Zoho SMTP settings (adjust host/port per region if needed)
+    const host = process.env.ZOHO_SMTP_HOST || 'smtp.zoho.in'; // use smtp.zoho.com, smtp.zoho.eu, etc. as appropriate
+    const port = Number(process.env.ZOHO_SMTP_PORT || 465);
+    const secure = port === 465; // true for 465, false for 587
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // You can change this to your preferred email service
+      host,
+      port,
+      secure,
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS, // Your app password
+        user,
+        pass,
       },
     });
 
+    // Verify SMTP connection/auth
+    try {
+      await transporter.verify();
+    } catch (verifyError) {
+      console.error('SMTP verify failed:', verifyError);
+      return NextResponse.json(
+        { error: 'Email service authentication failed' },
+        { status: 500 }
+      );
+    }
+
     // Email to you (notification of new contact)
     const mailToYou = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Your email to receive messages
+      from: user, // must be the authenticated mailbox for Zoho
+      to: user, // Your email to receive messages
+      replyTo: email, // so you can reply directly to the sender
       subject: `New Contact Form Message from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -36,11 +67,11 @@ export async function POST(request: NextRequest) {
         <hr>
         <p><em>This message was sent from your portfolio contact form.</em></p>
       `,
-    };
+    } as const;
 
     // Auto-reply email to the sender
     const autoReply = {
-      from: process.env.EMAIL_USER,
+      from: user, // must be the authenticated mailbox
       to: email,
       subject: 'Thank you for reaching out!',
       html: `
@@ -54,7 +85,7 @@ export async function POST(request: NextRequest) {
         <hr>
         <p style="font-size: 12px; color: #888;">This is an automated reply from jayant's portfolio website.</p>
       `,
-    };
+    } as const;
 
     // Send both emails
     await transporter.sendMail(mailToYou);
@@ -64,8 +95,13 @@ export async function POST(request: NextRequest) {
       { message: 'Email sent successfully' },
       { status: 200 }
     );
-  } catch (error) {
-    console.error('Error sending email:', error);
+  } catch (error: unknown) {
+    if (error && typeof error === 'object') {
+      const err = error as { message?: string; response?: unknown };
+      console.error('Error sending email:', err.message || error, err.response || '');
+    } else {
+      console.error('Error sending email:', error);
+    }
     return NextResponse.json(
       { error: 'Failed to send email' },
       { status: 500 }
