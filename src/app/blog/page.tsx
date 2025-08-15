@@ -39,7 +39,7 @@ export default function BlogPage() {
                         width={400}
                         height={200}
                         style={{
-                          objectFit: 'cover',
+                          objectFit: 'contain',
                           width: '100%',
                           height: '100%'
                         }}

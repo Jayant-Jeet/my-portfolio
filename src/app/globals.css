@@ -47,6 +47,144 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Page break / horizontal rule styling */
+.page-break {
+  border: none;
+  border-top: 1px solid rgba(230, 243, 241, 0.2);
+  margin: 2rem 0;
+}
+
+@media print {
+  .page-break {
+    break-after: page;
+    page-break-after: always; /* legacy */
+    border-top-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Pseudo-table styling for single-line table headers */
+.prose-table.pseudo-table {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(230, 243, 241, 0.15);
+  border-radius: 8px;
+  background: rgba(253, 255, 252, 0.05);
+}
+.pseudo-table .pseudo-cell {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(230, 243, 241, 0.12);
+  border-radius: 6px;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .prose-table.pseudo-table {
+    grid-auto-flow: row;
+  }
+}
+
+/* Real Markdown tables: strong cell separation and responsive overflow */
+.prose-table.real-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate; /* keep radius on container */
+  border: 1px solid rgba(230, 243, 241, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(253, 255, 252, 0.03);
+}
+
+.prose-table.real-table thead th {
+  background: rgba(46, 196, 182, 0.08); /* teal tint */
+  color: var(--text-primary);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(230, 243, 241, 0.24);
+  border-right: 1px solid rgba(230, 243, 241, 0.14);
+}
+
+.prose-table.real-table thead th:last-child {
+  border-right: none;
+}
+
+.prose-table.real-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(230, 243, 241, 0.14);
+  border-right: 1px solid rgba(230, 243, 241, 0.12);
+  vertical-align: top;
+}
+
+.prose-table.real-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prose-table.real-table tbody td:last-child {
+  border-right: none;
+}
+
+.prose-table.real-table tbody tr:nth-child(odd) {
+  background: rgba(253, 255, 252, 0.02);
+}
+
+/* Make wide tables scroll on small screens without breaking layout */
+.prose .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  /* Use wrapper for scroll; keep table layout intact */
+  .prose .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .prose-table.real-table {
+    display: table; /* ensure proper table layout */
+    table-layout: auto;
+    width: auto; /* allow natural width to exceed viewport */
+  }
+
+  /* Prevent vertical stretching by keeping cells in one line */
+  .prose-table.real-table th,
+  .prose-table.real-table td,
+  .prose-table.real-table th *,
+  .prose-table.real-table td * {
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+/* Prose typography: ensure long links/words wrap, especially on mobile */
+.prose,
+.prose p,
+.prose-li,
+.prose a,
+.prose-link {
+  overflow-wrap: anywhere; /* modern, best-effort wrapping */
+  word-break: break-word;  /* legacy support, avoids overflow */
+  hyphens: auto;
+}
+
+.prose a,
+.prose-link {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  /* Stronger wrapping on very small screens to prevent overflow */
+  .prose a,
+  .prose-link {
+    word-break: break-all; /* last resort for unbroken URLs */
+  }
+}
+
 .navbar {
   position: fixed; /* Fixed to top of page */
   top: 0;
