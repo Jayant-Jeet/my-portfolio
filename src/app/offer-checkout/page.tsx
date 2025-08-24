@@ -10,6 +10,7 @@ export default function OfferCheckoutPage() {
   const CURRENCY = '₹';
   const [baseSalary, setBaseSalary] = React.useState<number>(20);
   const [sending, setSending] = React.useState(false);
+  const [promoApplied, setPromoApplied] = React.useState(false);
   const rightRef = React.useRef<HTMLDivElement>(null);
   const format = (n: number) => `${CURRENCY}${n.toLocaleString('en-IN', { maximumFractionDigits: 0 })} LPA`;
   const orderId = React.useMemo(() => `ORDRJJ${Math.floor(Date.now() / 10000000)}`, []);
@@ -20,6 +21,8 @@ export default function OfferCheckoutPage() {
   const DELIVERY_FEE = baseSalary >= DELIVERY_FREE_THRESHOLD ? 0 : DELIVERY_FEE_BASE;
   const NEEDED_FOR_FREE_DELIVERY = Math.max(0, DELIVERY_FREE_THRESHOLD - baseSalary);
   const TOTAL = baseSalary + OFFER_ACCEPTANCE_FEE + EXCLUSIVITY_FEE + DELIVERY_FEE;
+  const DISCOUNT_APPLIED = promoApplied ? 1 : 0; // 1 LPA flat discount per request
+  const GRAND_TOTAL = Math.max(0, TOTAL - DISCOUNT_APPLIED);
   const clamp = (v: number, min = 20, max = 50) => Math.min(max, Math.max(min, v));
 
   const handleDownloadAndEmail = async () => {
@@ -252,6 +255,12 @@ export default function OfferCheckoutPage() {
                 <span>Delivery Fee</span>
                 <span>{DELIVERY_FEE === 0 ? 'FREE 🎉' : format(DELIVERY_FEE)}</span>
               </div>
+              {promoApplied && (
+                <div style={{ display: 'flex', justifyContent: 'space-between', color: '#6b7280', borderBottom: '1px dashed #e5e7eb', paddingBottom: '0.35rem' }}>
+                  <span>Discount (HIREME)</span>
+                  <span style={{ color: '#059669', fontWeight: 600 }}>- {format(DISCOUNT_APPLIED)}</span>
+                </div>
+              )}
             </div>
 
             {/* Footnote for free delivery threshold */}
@@ -263,9 +272,36 @@ export default function OfferCheckoutPage() {
 
             <div style={{ height: 1, background: '#e5e7eb', margin: '0.75rem 0' }} />
 
+            {/* Promo code area */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+              <div style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+                Use code <strong style={{ color: '#111111' }}>HIREME</strong> for 20% off (up to 1 LPA, T&Cs apply).
+              </div>
+              <button
+                type="button"
+                onClick={() => setPromoApplied(true)}
+                disabled={promoApplied}
+                style={{
+                  padding: '0.35rem 0.6rem',
+                  borderRadius: 6,
+                  border: '1px solid #7c3aed',
+                  background: promoApplied ? '#ede9fe' : '#ffffff',
+                  color: '#7c3aed',
+                  fontWeight: 600,
+                  fontSize: '0.8rem',
+                  lineHeight: 1,
+                  cursor: promoApplied ? 'default' : 'pointer'
+                }}
+                aria-pressed={promoApplied}
+                aria-label="Apply HIREME offer"
+              >
+                {promoApplied ? 'Applied' : 'Apply'}
+              </button>
+            </div>
+
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <div style={{ color: '#111111', fontWeight: 700 }}>Total</div>
-              <div style={{ color: '#111111', fontWeight: 800, fontSize: '1.25rem' }}>{format(TOTAL)}</div>
+              <div style={{ color: '#111111', fontWeight: 800, fontSize: '1.25rem' }}>{format(GRAND_TOTAL)}</div>
             </div>
 
             <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
