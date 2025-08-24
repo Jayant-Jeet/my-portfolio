@@ -13,6 +13,7 @@
     "@tabler/icons-react": "^3.31.0",
     "@types/nodemailer": "^6.4.17",
     "clsx": "^2.1.1",
+    "html-to-image": "^1.11.13",
     "motion": "^12.23.3",
     "next": "15.2.2",
     "nodemailer": "^7.0.5",

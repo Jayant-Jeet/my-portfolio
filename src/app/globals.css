@@ -554,12 +554,20 @@ body {
   .contact-container {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 1rem;
+  /* Increase side padding and account for safe-area (iOS notch) */
+  padding: 0 1.25rem;
+  padding-left: calc(1.25rem + env(safe-area-inset-left));
+  padding-right: calc(1.25rem + env(safe-area-inset-right));
+  justify-items: center; /* center grid items horizontally */
   }
   
   .contact-main {
-    padding: 1rem !important;
+  /* More comfortable gutters on mobile */
+  padding: 1.25rem !important;
     padding-top: 80px !important;
+  /* Ensure safe-area insets are respected */
+  padding-left: calc(1.25rem + env(safe-area-inset-left)) !important;
+  padding-right: calc(1.25rem + env(safe-area-inset-right)) !important;
   }
   
   .contact-left-column {
