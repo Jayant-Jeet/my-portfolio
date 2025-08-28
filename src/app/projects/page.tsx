@@ -14,8 +14,19 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
     githubUrl: "https://github.com/Jayant-Jeet/my-portfolio",
     liveUrl: "https://halfbloodcoder.com",
-    image: "/Logo_Color1.svg",
+    image: "/featured.png",
     category: "Featured",
+    size: "large"
+  },
+  {
+    id: 8,
+    title: "Offer Checkout",
+    description: "A playful, order-style offer summary generator with image export and email features. Built in Next.js using html-to-image and a serverless email endpoint.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "html-to-image", "Nodemailer"],
+    githubUrl: "https://github.com/Jayant-Jeet/my-portfolio/tree/master/src/app/offer-checkout",
+    liveUrl: "http://halfbloodcoder.com/offer-checkout",
+  image: "/ui-ux.png",
+    category: "Frontend",
     size: "large"
   },
   {
@@ -25,8 +36,8 @@ const projects = [
     tech: ["Angular", "TypeScript", "SCSS"],
     githubUrl: "https://github.com/Jayant-Jeet/sme-planner",
     liveUrl: "#",
-    image: "/globe.svg",
-    category: "Full Stack",
+    image: "/ui-ux.png",
+    category: "Frontend",
     size: "large"
   },
   {
@@ -36,8 +47,8 @@ const projects = [
     tech: ["SpringBoot", "REST API", "MySQL"],
     githubUrl: "https://github.com/Jayant-Jeet/ltt-sme-planner-backend",
     liveUrl: "#",
-    image: "/window.svg",
-    category: "Full Stack",
+    image: "/backend.png",
+    category: "Backend",
     size: "large"
   },
   {
@@ -47,7 +58,7 @@ const projects = [
     tech: ["Java", "Algorithms", "Data Structures"],
     githubUrl: "https://github.com/Jayant-Jeet/cp",
     liveUrl: "#",
-    image: "/github.svg",
+    image: "/hackathon.png",
     category: "Programming",
     size: "large"
   },
@@ -58,7 +69,7 @@ const projects = [
     tech: ["Machine Learning", "Mediapipe", "C++"],
     githubUrl: "https://github.com/Amankumar1456/SIH2020_IC464_Sixth_Sense_GitRepository_MLRIT",
     liveUrl: "#",
-    image: "/file.svg",
+    image: "/machine-learning.png",
     category: "Machine Learning",
     size: "large"
   },
@@ -69,9 +80,9 @@ const projects = [
     tech: ["JavaScript", "NLP", "Jina", "Machine Learning"],
     githubUrl: "https://github.com/Jayant-Jeet/kanoon",
     liveUrl: "#",
-    image: "/globe.svg",
+    image: "/machine-learning.png",
     category: "Machine Learning",
-    size: "medium"
+    size: "large"
   },
   {
     id: 7,
@@ -80,9 +91,9 @@ const projects = [
     tech: ["Flutter", "Dart", "Mobile Development"],
     githubUrl: "https://github.com/Jayant-Jeet/save-the-planet",
     liveUrl: "#",
-    image: "/window.svg",
+    image: "/mobile-development.png",
     category: "Mobile",
-    size: "medium"
+    size: "large"
   }
 ];
 
@@ -155,7 +166,7 @@ export default function Projects() {
     return projects.filter(project => project.category === activeFilter);
   }, [activeFilter]);
 
-  const categories = ['All', 'Featured', 'Full Stack', 'Machine Learning', 'Mobile', 'Programming'];
+  const categories = ['All', 'Featured', 'Frontend', 'Backend', 'Full Stack', 'Machine Learning', 'Mobile', 'Programming'];
 
   return (
     <div>
