@@ -88,7 +88,7 @@ function Home() {
               <Link href="/blog" className="btn-secondary">
                 My Blog
               </Link>
-              <Link href="https://www.dropbox.com/scl/fi/w9mzpiszxn05331dzkoe9/Resume-Jayant-Jeet-Tomar-Java-Full-Stack-Developer-Sept25.pdf?rlkey=ao4b5xq9x7kdtryjfjegrvdds&st=7xjks8rr&dl=0" className="btn-success" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.dropbox.com/scl/fi/z5ozog90lye842589npwo/Resume-Jayant-Jeet-Tomar-Java-Full-Stack-Developer-Sept25.pdf?rlkey=r06suw3wkotmao7yk42cgzdio&st=xx6x8s2u&dl=0" className="btn-success" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </Link>
               <Link href="/contact" className="btn-secondary">
