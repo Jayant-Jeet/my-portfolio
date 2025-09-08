@@ -1,3 +1,48 @@
+.legend-tips {
+  margin: 0;
+  padding: 0;              /* reset so we can create custom markers */
+  line-height: 1.5;
+  list-style: none;        /* remove default bullets */
+}
+.legend-tips li {
+  margin: 0.15rem 0;
+  padding: 0.6rem 0; /* symmetric padding; no left offset needed */
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center; /* vertically center marker with text */
+  gap: 0.5rem;
+}
+.legend-tips li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 2px rgba(46, 196, 182, 0.2);
+  flex: 0 0 8px; /* fixed-size marker */
+}
+.legend-tips li + li {
+  border-top: 1px solid rgba(253, 255, 252, 0.12);
+  margin-top: 0.4rem;
+  padding-top: 0.8rem;
+}
+/* Visually indicate disabled cron buttons */
+.cron-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Strong emphasis for cron text */
+.cron-text-emph {
+  font-size: 2.7rem;
+  font-weight: 500;
+  color: #fffde4;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0.5rem 0 1.2rem 0;
+  line-height: 1.2;
+  font-style: italic;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 @import "tailwindcss";
 
 :root {
@@ -1529,3 +1574,103 @@ body {
    Replaced opacity-based text dimming with semantic color variables
    to ensure consistent contrast ratios across all text elements.
    ============================================ */
+
+/* =====================
+   Cron-jutsu Page Styles
+   ===================== */
+.cronjutsu-main { padding: 2rem; padding-top: 100px; min-height: 100vh; }
+.cronjutsu-container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+.cron-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 4rem; font-weight: 900; color: #faff6b; letter-spacing: 1px; text-shadow: 0 0 16px rgba(250,255,107,0.35);
+  margin: 0 0 0.5rem 0; text-align: center;
+}
+.cron-subtitle { text-align: center; color: var(--text-secondary); font-size: 1.75rem; margin: 0; font-family: ui-monospace, monospace; }
+.cron-next {
+  text-align: center;
+  color: var(--text-subtle);
+  margin-top: 0.5rem;
+  word-spacing: 0.3rem; /* increase space between words for clarity */
+}
+.cron-next-when { color: var(--text-secondary); }
+.cron-box {
+  margin: 1.25rem auto 1rem; padding: 1rem; border-radius: 12px; border: 2px solid rgba(250,255,107,0.7);
+  background: rgba(250,255,107,0.06); box-shadow: 0 0 24px rgba(250,255,107,0.25), inset 0 0 18px rgba(250,255,107,0.08);
+  display: flex; align-items: center; gap: 1rem; justify-content: space-between;
+}
+.cron-display { flex: 1; text-align: center; font-size: clamp(1.3rem, 3.5vw, 2.25rem); font-family: ui-monospace, monospace; letter-spacing: clamp(3px, 0.8vw, 8px); color: #f8ff80; }
+.cron-actions { display: flex; gap: 0.5rem; }
+.cron-btn { background: transparent; color: #f8ff80; border: 1px solid rgba(250,255,107,0.65); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.cron-btn:hover { background: rgba(250,255,107,0.1); box-shadow: 0 6px 18px rgba(250,255,107,0.18); transform: translateY(-1px); }
+.cron-btn.primary { background: #f8ff80; color: #111; border-color: #f8ff80; }
+.cron-btn.primary:hover { filter: brightness(0.95); }
+
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.control { display: flex; flex-direction: column; gap: 0.4rem; }
+.label { color: var(--text-secondary); font-weight: 600; text-transform: lowercase; font-family: ui-monospace, monospace; }
+.input { background: rgba(253,255,252,0.05); color: var(--text-primary); border: 1px solid rgba(250,255,107,0.35); padding: 0.6rem 0.75rem; border-radius: 8px; font-size: 1rem; }
+.input:focus { outline: none; border-color: #f8ff80; box-shadow: 0 0 0 3px rgba(250,255,107,0.2); }
+
+.legend {
+  /* elevate the legend into a subtle card */
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(250, 255, 107, 0.28);
+  border-radius: 12px;
+  background: linear-gradient(
+      180deg,
+      rgba(250, 255, 107, 0.06) 0%,
+      rgba(250, 255, 107, 0.04) 100%
+  );
+  box-shadow:
+    inset 0 0 18px rgba(250, 255, 107, 0.08),
+    0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.legend-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.1rem; margin-bottom: 0.75rem; }
+.legend-label { text-align: center; color: var(--text-muted); font-family: ui-monospace, monospace; font-size: 0.9rem; }
+.legend-table { list-style: none; padding: 0; margin: 0; border: 1px solid rgba(250, 255, 107, 0.28); border-radius: 12px; overflow: hidden; background: rgba(253,255,252,0.03); }
+.legend-table li { display: grid; grid-template-columns: 72px 1fr; gap: 1rem; padding: 0.7rem 0.9rem; border-bottom: 1px solid rgba(253,255,252,0.12); align-items: center; transition: background 0.2s ease, border-color 0.2s ease; }
+.legend-table li:last-child { border-bottom: none; }
+.legend-table li:hover { background: rgba(253, 255, 252, 0.05); }
+.legend-table code { display: inline-block; text-align: center; background: rgba(250,255,107,0.08); border: 1px solid rgba(250,255,107,0.35); padding: 0.25rem 0.55rem; border-radius: 8px; color: #faff6b; font-weight: 700; letter-spacing: 0.5px; font-family: ui-monospace, monospace; box-shadow: 0 1px 0 rgba(250,255,107,0.15) inset; }
+.legend-table span { color: var(--text-secondary); }
+
+.legend-heading {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .cronjutsu-main { padding: 1rem; padding-top: 90px; }
+  .cron-title { font-size: 2.2rem; }
+  .cron-box { padding: 0.75rem; }
+  .cron-text-emph { font-size: 1.6rem; }
+  .cron-actions { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .legend-grid { grid-template-columns: 1fr; }
+  .cron-display { font-size: 1.3rem; letter-spacing: 4px; }
+  .legend-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .legend-label { text-align: left; }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cronjutsu-container { max-width: 800px; }
+  .cron-title { font-size: 3rem; }
+  .cron-box { padding: 1rem; }
+  .cron-text-emph { font-size: 2rem; }
+}
+
+@media (min-width: 1280px) {
+  .cronjutsu-container { max-width: 1100px; }
+  .cron-title { font-size: 4.25rem; }
+}

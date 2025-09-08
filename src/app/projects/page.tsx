@@ -19,12 +19,23 @@ const projects = [
     size: "large"
   },
   {
+    id: 9,
+    title: "Cron-jutsu",
+    description: "A web application designed to help developers learn, test, and master cron schedule expressions with confidence. It offers an intuitive interface, real-time validation, and contextual guidance to demystify time-based job scheduling. Ideal for developers, DevOps engineers, and technical learners seeking a reliable and interactive way to sharpen their cron skills.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/Jayant-Jeet/my-portfolio/tree/master/src/app/cron-jutsu",
+    liveUrl: "https://halfbloodcoder.com/cron-jutsu",
+    image: "/ui-ux.png",
+    category: "Frontend",
+    size: "large"
+  },
+  {
     id: 8,
     title: "Offer Checkout",
     description: "A playful, order-style offer summary generator with image export and email features. Built in Next.js using html-to-image and a serverless email endpoint.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "html-to-image", "Nodemailer"],
     githubUrl: "https://github.com/Jayant-Jeet/my-portfolio/tree/master/src/app/offer-checkout",
-    liveUrl: "http://halfbloodcoder.com/offer-checkout",
+    liveUrl: "https://halfbloodcoder.com/offer-checkout",
   image: "/ui-ux.png",
     category: "Frontend",
     size: "large"
