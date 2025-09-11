@@ -17,6 +17,7 @@
     "motion": "^12.23.3",
     "next": "15.2.2",
     "nodemailer": "^7.0.5",
+    "poper-react-sdk": "^0.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.1",
