@@ -25,7 +25,7 @@ function Home() {
             <GlareCard>
               <Image 
                 src="/profile.png" 
-                alt="Jayant Jeet Tomar" 
+                alt="Jayant Jeet Tomar - Java Full-Stack Developer in Gurugram" 
                 width={260} 
                 height={260} 
                 style={{ 
