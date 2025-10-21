@@ -43,6 +43,59 @@ Nox!
     published: true
   },
   {
+    id: '4',
+    slug: 'my-hacktoberfest-2025-journey',
+    title: 'My Hacktoberfest 2025 Journey — Code, Community, and Collaboration',
+    titlePrefix: '✨',
+    excerpt: 'Participated in Hacktoberfest 2025 — contributions, lessons learned, and gratitude for open-source maintainers.',
+  content: `
+Hey there!
+I solemnly swear that I am up to no good.
+---
+October has always been a month of vibrant energy in the developer community, and this year was no exception. I had the privilege of participating in Hacktoberfest 2025, an annual celebration of open-source software organized by the incredible team at DigitalOcean.
+As a Java Full-Stack Developer, I believe in the power of collaboration and the magic of open-source. Hacktoberfest gave me a perfect platform to contribute, learn, and connect with maintainers and developers across the globe.
+## 🌟 Projects I Contributed To
+Here are three standout projects I had the pleasure of contributing to:
+---
+### 📝 WordWizard
+A sleek, accessible text editor focused on simplicity and keyboard-first interactions.
+🔗 Live Demo: https://wordwizard-texteditor.netlify.app/
+👨‍💻 Maintainer: Palchhi Parihar [https://github.com/palchhinparihar]
+---
+### 🛠️ FreeDevTools
+A curated collection of free developer tools that make life easier for coders and creators.
+🔗 Live Demo: https://hexmos.com/freedevtools/
+👨‍💻 Maintainer: Maneshwar Athreya [https://github.com/lovestaco]
+---
+### 📡 Tech‑Fest‑Radar
+A dynamic radar for discovering upcoming tech fests and events across India.
+🔗 Live Demo: https://techfest-sigma.vercel.app/
+👨‍💻 Maintainer: Vishal Tiwari [https://github.com/Vishal772-pixel]
+---
+## 🙌 Gratitude to the Maintainers
+A huge shoutout to Palchhi, Maneshwar, and Vishal for not only building these projects but for welcoming contributors with open arms. Your feedback and guidance made the experience truly enriching.
+## 💡 What I Learned
+- Navigating diverse codebases and different architectural styles
+- Collaborating asynchronously with maintainers and fellow contributors
+- Improving my Git workflow and contribution etiquette
+- Reinforcing the value of community‑driven development
+## 🚀 Final Thoughts
+Hacktoberfest isn’t just about pull requests — it’s about people, passion, and progress. I’m grateful for the opportunity to give back, and I’m excited to continue contributing beyond October.
+If you’re a developer looking to grow, connect, and make an impact — open-source is the way forward.
+---
+Happy coding! 🚀
+Cheers,
+The Half-Blood Coder
+Nox!
+  `,
+    date: '21st October, 2025',
+    category: 'Community',
+    tags: ['hacktoberfest', 'open-source', 'contributions'],
+    image: '/hacktoberfest2k25.png' ,
+    readTime: 4,
+    published: true
+  },
+  {
     id: '2',
     slug: 'frontend-vs-backend-deployments',
     title: 'Frontend Deployments Are a Dream. Backend? A Whole Saga.',
