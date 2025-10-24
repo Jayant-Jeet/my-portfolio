@@ -1,3 +1,15 @@
+/*
+ * Half-Blood Coder Portfolio
+ * Copyright (c) 2025 Jayant Jeet Tomar
+ * All Rights Reserved
+ * 
+ * This source code is proprietary and confidential.
+ * Unauthorized copying, modification, distribution, or use
+ * of this software, via any medium, is strictly prohibited.
+ * 
+ * For licensing inquiries: https://www.halfbloodcoder.com/contact
+ */
+
 import nodemailer from 'nodemailer';
 import { NextRequest, NextResponse } from 'next/server';
 

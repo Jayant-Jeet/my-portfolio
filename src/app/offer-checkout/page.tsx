@@ -1,3 +1,15 @@
+/*
+ * Offer Checkout - Offer Summary Generator
+ * Part of Half-Blood Coder Portfolio
+ * Copyright (c) 2025 Jayant Jeet Tomar
+ * All Rights Reserved - Patent Pending
+ * 
+ * This proprietary tool is protected under patent law.
+ * Commercial use, reproduction, or derivative works are strictly prohibited.
+ * 
+ * For licensing inquiries: https://www.halfbloodcoder.com/contact
+ */
+
 'use client';
 
 import React from 'react';

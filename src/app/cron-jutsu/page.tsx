@@ -1,3 +1,15 @@
+/*
+ * Cron-jutsu - Interactive Cron Expression Learning Tool
+ * Part of Half-Blood Coder Portfolio
+ * Copyright (c) 2025 Jayant Jeet Tomar
+ * All Rights Reserved - Patent Pending
+ * 
+ * This proprietary tool is protected under patent law.
+ * Commercial use, reproduction, or derivative works are strictly prohibited.
+ * 
+ * For licensing inquiries: https://www.halfbloodcoder.com/contact
+ */
+
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
