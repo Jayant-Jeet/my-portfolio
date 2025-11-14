@@ -100,7 +100,7 @@ function Home() {
               <Link href="/blog" className="btn-secondary">
                 My Blog
               </Link>
-              <Link href="https://www.dropbox.com/scl/fi/z5ozog90lye842589npwo/Resume-Jayant-Jeet-Tomar-Java-Full-Stack-Developer-Sept25.pdf?rlkey=r06suw3wkotmao7yk42cgzdio&st=xx6x8s2u&dl=0" className="btn-success" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.dropbox.com/scl/fi/dvh8h7ovyj16c0kx4we82/Resume-Jayant-Jeet-Tomar-Java-Full-Stack-Developer-Nov25.pdf?rlkey=8a6sa3vy8ly79qhg3e9ben915&st=u9eqggtv&dl=0" className="btn-success" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </Link>
               <Link href="/contact" className="btn-secondary">
