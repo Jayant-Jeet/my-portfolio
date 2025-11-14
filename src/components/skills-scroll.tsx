@@ -74,15 +74,37 @@ const skills: Skill[] = [
 const SkillsScroll: React.FC = () => {
   const scrollRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const isUserInteractingRef = useRef(false);
+  const userInteractionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollAccumulatorRef = useRef(0);
   
   // Create multiple copies for seamless infinite scroll
-  const skillsCopies = Array(4).fill(skills).flat();
+  const skillsCopies = new Array(4).fill(skills).flat();
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     const track = trackRef.current;
     
     if (!scrollContainer || !track) return;
+
+    // Auto-scroll speed (pixels per frame)
+    const scrollSpeed = 0.3;
+    
+    // Initialize scroll position to middle section
+    const singleSetWidth = track.scrollWidth / 4;
+    scrollContainer.scrollLeft = singleSetWidth;
+
+    const autoScroll = () => {
+      if (!isUserInteractingRef.current && scrollContainer) {
+        scrollAccumulatorRef.current += scrollSpeed;
+        if (scrollAccumulatorRef.current >= 1) {
+          scrollContainer.scrollLeft += Math.floor(scrollAccumulatorRef.current);
+          scrollAccumulatorRef.current %= 1;
+        }
+      }
+      animationFrameRef.current = requestAnimationFrame(autoScroll);
+    };
 
     const handleUserScroll = () => {
       // Check for infinite scroll reset
@@ -98,11 +120,52 @@ const SkillsScroll: React.FC = () => {
       }
     };
 
-    // Add scroll listener for infinite scroll reset only
+    const handleInteractionStart = () => {
+      isUserInteractingRef.current = true;
+      
+      // Clear any existing timeout
+      if (userInteractionTimeoutRef.current) {
+        clearTimeout(userInteractionTimeoutRef.current);
+      }
+    };
+
+    const handleInteractionEnd = () => {
+      // Resume auto-scroll after 2 seconds of no interaction
+      if (userInteractionTimeoutRef.current) {
+        clearTimeout(userInteractionTimeoutRef.current);
+      }
+      
+      userInteractionTimeoutRef.current = setTimeout(() => {
+        isUserInteractingRef.current = false;
+      }, 2000);
+    };
+
+    // Start auto-scroll animation
+    animationFrameRef.current = requestAnimationFrame(autoScroll);
+
+    // Add event listeners
     scrollContainer.addEventListener('scroll', handleUserScroll);
+    scrollContainer.addEventListener('wheel', handleInteractionStart);
+    scrollContainer.addEventListener('touchstart', handleInteractionStart);
+    scrollContainer.addEventListener('mousedown', handleInteractionStart);
+    scrollContainer.addEventListener('wheel', handleInteractionEnd);
+    scrollContainer.addEventListener('touchend', handleInteractionEnd);
+    scrollContainer.addEventListener('mouseup', handleInteractionEnd);
 
     return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      if (userInteractionTimeoutRef.current) {
+        clearTimeout(userInteractionTimeoutRef.current);
+      }
       scrollContainer.removeEventListener('scroll', handleUserScroll);
+      scrollContainer.removeEventListener('wheel', handleInteractionStart);
+      scrollContainer.removeEventListener('touchstart', handleInteractionStart);
+      scrollContainer.removeEventListener('mousedown', handleInteractionStart);
+      scrollContainer.removeEventListener('wheel', handleInteractionEnd);
+      scrollContainer.removeEventListener('touchend', handleInteractionEnd);
+      scrollContainer.removeEventListener('mouseup', handleInteractionEnd);
     };
   }, []);
 
