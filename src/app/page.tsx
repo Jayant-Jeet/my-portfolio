@@ -84,7 +84,7 @@ function Home() {
                   margin: '0 auto'
                 }}
               >
-                I&apos;m a <span style={{ color: 'var(--orange)', fontWeight: 'bold' }}>Full-Stack Developer</span> with a passion for crafting beautiful and functional web applications.
+                I&apos;m a <span style={{ color: 'var(--orange)', fontWeight: 'bold' }}>Full-Stack Developer</span> who turns legacy systems into high-performing platforms—mentoring teams and delivering impact at scale.
               </p>
             </div>
 
