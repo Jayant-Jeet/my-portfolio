@@ -15,7 +15,7 @@
     "clsx": "^2.1.1",
     "html-to-image": "^1.11.13",
     "motion": "^12.23.3",
-    "next": "^15.2.6",
+    "next": "^16.0.10",
     "nodemailer": "^7.0.5",
     "pdfjs-dist": "^5.4.449",
     "poper-react-sdk": "^0.1.1",
