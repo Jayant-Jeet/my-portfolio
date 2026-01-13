@@ -203,6 +203,50 @@ Nox!
     readTime: 6,
     published: true
   },
+  {
+    id: '5',
+    slug: 'sih-2025-grand-finale',
+    title: 'SIH 2025 Grand Finale – My Experience as a UI/UX Mentor & Evaluator',
+    titlePrefix: '🏆',
+    excerpt: 'From participant to mentor to evaluator — my journey at SIH 2025 Grand Finale at IIT Kharagpur, mentoring innovators and evaluating solutions for a challenging gold assaying problem statement.',
+    content: `
+Hey there!
+I solemnly swear that I am up to no good.
+---
+Some invites don't need deliberation. When the mail for the Smart India Hackathon (SIH) 2025 Grand Finale at IIT Kharagpur landed in my inbox, I accepted instantly. Hackathons have been a constant thread in my journey — from winning the SIH 2020 Grand Finale, leading a team at the ASEAN India Hackathon, to mentoring at the UNESCO India Africa Hackathon. SIH, initiated by AICTE and the Ministry of Innovation Council (MIC), has always been special to me because it gives students the chance to solve real-world problems faced by industries and public organizations.
+This year, my role was unique: UI/UX Mentor cum Evaluator for the problem statement SIH25056 – Exploring new/alternative assaying methods to the fire assay method for testing gold jewellery and artefacts through non-destructive testing. A mouthful, yes — but also one of the most challenging and fascinating problem statements I've seen.
+## 📸 SIH 2025 Moments
+[photos-album title="SIH 2025 Photo Album" description="View memories from the Smart India Hackathon 2025 Grand Finale at IIT Kharagpur"]https://photos.app.goo.gl/h4qw8AzRGn2nKidJ8[/photos-album]
+## 🏟️ The Grand Finale Atmosphere
+The IIT Kharagpur campus was alive with energy. The organizing committee was warm and welcoming, making my stay comfortable and memorable. Local students added their own charm — we had candid conversations on everything from Bitcoin to religions to local cultures, usually over plates of delicious food at nearby eateries. These moments reminded me that hackathons are not just about code and slides; they're about people, ideas, and shared experiences.
+## 🎨 Mentoring the Innovators
+As a UI/UX Mentor, I was spellbound by the students' creativity. Their dedication to understanding complex problem statements, their willingness to research with field visits, and their sheer innovative approach was inspiring.
+My role was to help them present their solutions better — to highlight the niche USPs, structure their narrative, and ensure their brilliance wasn't lost in translation when facing the evaluation panel. Having walked the path myself — from participant to mentor to evaluator — I knew exactly where presentations often fall short. Guiding them to bridge those gaps felt like passing on lessons I had once learned the hard way.
+## 🧙‍♂️ Wearing the Evaluator Hat
+Evaluation, however, was the tougher part. I'll admit — I was a bit harsh during the final rounds. But it wasn't criticism for the sake of it; it was because I wanted the teams to push their limits and deliver their absolute best.
+Behind the scenes, I was rooting for them. In jury discussions, I stood up for their efforts, acknowledging the sheer difficulty of the problem statement. It required industrial-level expertise, which most students hadn't had access to before arriving at the finale. Yet, they persevered, and their resilience made me proud. Every team that presented was a testament to what student innovation can achieve when given the right platform.
+## 🤝 Learning from the Best
+One of the highlights of SIH 2025 was meeting and interacting with brilliant minds:
+- Jury members from BIS: Dr. Chandan K Rao, Dr. Vipul Bohara, Dr. Ajay Soni, Mr. Chetan Bhandari.
+- Industry leaders like Dr. Sujeet Naik and Sachin Jayashekhar.
+- And my fellow jury mate, Mr. Pathikrit Sarkar, who shared my tenure spirit.
+Their humility and kindness, despite their stature, left a lasting impression. I walked away with a deeper understanding of the gold industry in India, something I hadn't expected when I first signed up for this role.
+## 🔚 Closing Reflections
+Looking back, SIH 2025 wasn't just another hackathon for me. It was a celebration of innovation, mentorship, and collaboration. I'm grateful to AICTE and MIC for inviting me, and proud of every student who dared to tackle such a tough challenge.
+Hackathons, for me, have never been about just winning or losing. They're about the journey — the sleepless nights, the candid conversations, the mentorship, and the spark of ideas that might one day change industries. SIH 2025 reminded me of that spark, and it will remain one of the highlights of 2025.
+---
+Happy coding! 🚀
+Cheers,
+The Half-Blood Coder
+Nox!
+    `,
+    date: '12th January, 2025',
+    category: 'Hackathon',
+    tags: ['sih', 'hackathon', 'mentor', 'evaluator', 'innovation'],
+    image: '/sih-2025/sih3.jpg',
+    readTime: 10,
+    published: true
+  },
 ];
 
 // Helper function to get a blog post by slug

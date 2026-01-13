@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/navbar';
+import GooglePhotosEmbed from '@/components/google-photos-embed';
 import { getBlogPost, blogPosts } from '@/lib/blog-data';
 
 interface BlogPostPageProps {
@@ -88,6 +89,30 @@ function renderContent(content: string): React.ReactNode[] {
 
   while (i < lines.length) {
     const line = lines[i];
+
+    // Check for Google Photos album embed
+    const googlePhotosMatch = /^\[photos-album\](.*?)\[\/photos-album\]$/i.exec(line.trim());
+    if (googlePhotosMatch) {
+      const albumUrl = googlePhotosMatch[1];
+      nodes.push(
+        <GooglePhotosEmbed key={`google-photos-${i}`} albumUrl={albumUrl} />
+      );
+      i++;
+      continue;
+    }
+
+    // Check for Google Photos album embed with title and description
+    const googlePhotosAdvancedMatch = /^\[photos-album\s+title="(.*?)"\s+description="(.*?)"\](.*?)\[\/photos-album\]$/i.exec(line.trim());
+    if (googlePhotosAdvancedMatch) {
+      const title = googlePhotosAdvancedMatch[1];
+      const description = googlePhotosAdvancedMatch[2];
+      const albumUrl = googlePhotosAdvancedMatch[3];
+      nodes.push(
+        <GooglePhotosEmbed key={`google-photos-${i}`} albumUrl={albumUrl} title={title} description={description} />
+      );
+      i++;
+      continue;
+    }
 
     // Multi-line Markdown table: header, separator, body rows
     if (isTableHeader(line) && i + 1 < lines.length && isTableSeparator(lines[i + 1])) {
