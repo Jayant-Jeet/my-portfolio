@@ -15,6 +15,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AnimatedBackground from "@/components/animated-background";
 import PoperProvider from "@/components/poper-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -105,6 +106,7 @@ export default function RootLayout({
   <PoperProvider />
         {children}
         <AnimatedBackground />
+        <Analytics />
       </body>
     </html>
   );
