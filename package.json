@@ -13,6 +13,7 @@
     "@tabler/icons-react": "^3.31.0",
     "@types/nodemailer": "^6.4.17",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "html-to-image": "^1.11.13",
     "motion": "^12.23.3",
